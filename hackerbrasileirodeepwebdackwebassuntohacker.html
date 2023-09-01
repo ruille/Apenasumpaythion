@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <link rel="stylesheet" href="colorletra.css">
+    <meta charset="UTF-8">
+    <title>hackinprotocolor</title>
+</head>
+<body bgcolor="black">
+   <h1>assunto hacker☠️</h1>
+   
+   <p>Eae nerdola, ta afim de aprender sobre hacking? então bora começar pelo básico e uma das coisas mais importantes, protocolos, em essencial os dois mais conhecidos. Eu vou assumir que você deva ter no minimo um conhecimento básico sobre modelo OSI (Camadas de Aplicação), topologias, servidores e afins ...
+
+Eu não vou só ensinar IPv6 e IPv4, vou ensinar tudo o que aprendi até hoje com o máximo de profundidade e baseamento téorico e prático, então entenda que isso é a primeira parte de muitos. Valeu.
+
+Como o assunto sobre IPv6 e IPv4 são MUITO GRANDES E EXTENSIVOS eu vou dividir em partes, pois quero me aprofundar ao máximo sobre os assuntos para que você entenda bem sobre tal, peço ainda também que não liguem para erros ortográficos no texto, e se houver, se possível me ajudar a eliminar.
+
+Bem, com isso em mente vamos lá!</p>
+<p><br/><br/>
+   <br/></p>
+   
+   <p>IPv6
+
+IPv6, "Internet Protocol Version 6" foi criado em conjunto com as maiores big techs existentes (sim) e o IETF (Internet Enginnering Task Force) e a ideia é servir como o protocolo internet da nova geração, a primeira motivação para isso, é que, segundo o IETF o IPv4, além de um endereços se limitando com o tempo, IPv4 sofre com a falta de recursos e endereçamentos, o que restringe a capacidae a capacidade de funcionamento de uma aplicação. IPv6 surge não só com a ideia de resolver o problema de endereços disponveis, como também a entropia e a conexão entre dispositivos móveis, desktop e etc.
+
+Por mais que IPv6 já seja um modelo em funcionamento a anos, ele ainda não está bem aplicado como deveria, ao contrário, ao que tudo indica os endereçamentos IPv4 aumentam. O IETF incentiva a ação de configuração e uso do IPv6 ao invés do IPv4 por motivos óbvios. </p>
+<img src="https://www.researchgate.net/publication/224174117/figure/fig1/AS:302826094907397@1449210775723/IPv6-network-architecture.png" width="800" alt="ipv6"></img>
+<p><br/><br/>
+   <br/></p>
+<h3>Funcionamento</h3>
+<p>A estrutura e funcionamento do IPv6 diversifica, o que aumenta a capacidade de endereçamento, o endereço de 128 bits é entre 4 vezes o tamanho do IPv4 convencional, isso porque o mesmo, ao invés de usar um endereço com 4 octetos separdos por '.' (192.168.1.1), o IPv6 usa um endereço hexadecimal separado por "::". (2001:db8::123.123.123.123).
+
+Segundo o IETF, existem 3 métodos de representação e endereçamento IPv6
+
+    1 - Notação hexadecimal fracionária, aonde o formato segue o padrão. X:X:X:X:X:X:X:X. Cada valor, ou melhor X na representação, equivalem a 16 bits de memória. Aliás, veremos adianta sobre omissão de valores zeros no endereço IPv6.
+    2 - Comprimida ou Expressão Zero, aonde, em alguns casos o IPv6 pode ter um longo segmento de valores hexadecimais e para compactar valores muito grandes, o valor 0 pode ser comptactado com "::" , entretanto, para evitar conflitos, a compressão só pode ser usada uma única vez dentro de todo o segmento, exemplo: 0000::0000:0:0:0:0:0:0:0:0:1
+    Junção IPv4, expressão que é usada comumente para realizar comunicação entre protocolos IPv4 e IPv6, exemplo: 0000::0000:192.168.1.1...
+
+Como já dito antes, um valor IPv6 pode ter uma length enorme e isso obviamente usa mais memória, um valor IPv6 pode ter até 39 caracteres, aonde o ":" é lido como nulo. Um valor IPv6 pode variar desde 16 bits, até o seu máximo que é 128 bits.</p>
+<img src="https://www.redhat.com/sysadmin/sites/default/files/styles/embed_medium/public/2019-09/IPv6%20addresses.png?itok=QukwMTJu" alt="128 bits"></img>
+<p><br/><br/>
+   <br/></p>
+<h3>Camadas de Aplicação e Pacotes</h3>
+<p>Como dito antes, é importante que você tenha um conhecimento básico e simples sobre camadas de aplicação, porém irei resumir um pouco aqui. IPv6 possui 3 divisões para o envio de pacotes, sendo ele o header, extended header e protocolo de camada superior. O header do IPv6 sofreu melhorias em relação ao IPv4, entre elas está a redução de comprimento de campos e o valor é fixado em 40 bytes. Isso permite que mesmo com 128 bits de tamanho máximo, 30 e poucos caracteres, o IPv6 se tornasse ainda menor em questão de gerenciamento de memória, bacana não?....
+
+O cabeçalho serve inicialmente como ponto de partida das mensagens, e assim passamos para a segunda parte da divisão que é opcional, na qual o IPv6 permite a adição de mais headers, o chamado header extendido onde é possivel ter mais opções de uso do protocolo.
+
+Já o protocolo superior, é nada mais que os dados dos pacotes enviados para a próxima camada de aplicação, aonde entram outros protocolos, como podemos exemplificar com o TCP que é um protocolo de controle de transmissão e faz a comunicação com o protocolo de internet para envio de mensagens.</p>
+<img src="https://www.tutorialspoint.com/ipv6/images/IPv6_header.jpg" alt="ipv6"></img>
+<p>
+    Version - para indicar a versão do IPv6
+    Traffic Class - Usada para demonstrar o Quality Of Service, na qual permite controlar e garantir maior desempenho das aplicações. (QoS)....
+    Flow Label - Usado para identificar pacotes no mesmo fluxo, na qual com um valor fixo de 24 bits, escolhe um "rótulo" de forma aleatória em hexadecimal. Ele ainda ajuda a identificar o fluxo de pacotes que estão sendo enviados para determinado destino, o que cria uma espécie de separação do tráfego, talvez? haha.
+    Payload Length - Indica o número de bytes dentro do header ou extended header, e ainda é usado para indentificação do header da mensagem/pacote enviado.
+    Next Header - Indentifica o protocolo da camada superior
+    Hop Limit - Assim como qualquer protocolo temos tratamento de dados, e no IPv6 isso não é diferente, Hop Limit é o que chamamos de "Time to Live", o pacote quando enviado ele recebe um determinado tempo para ser enviado, o que podemos chamar de Hop. Quando este valor for esgotado a 0, o pacote não é mais transmitido o que indica uma possível falha emissor -> receptor
+    Source Address - Identifica o endereçamento de origem de transmissão do pacote
+    Destination Address - Identifica o endereçamento de destino do pacote.</p>
+   <p><br/><br/>
+   <br/></p>
+   <h3>Tipos diferentes de endereços IPv6</h3> 
+   <p>O IPv6 possui (novamente) 3 tipos diferentes de endereços, sendo eles Unicast, Multicast e Anycast..
+
+     Unicast - Identificador de uma rede especifica, sendo eles link-local, site-local e global. O Link-Local é responsável por identificar interfaces da mesma rede. Já o Site-Local identificam uma interface dentro da rede de uma aplicação interna. Global, por sua vez, é um identificador de fato global, responsável pela identificação de máquinas na interner toda. (Deixarei fora o quesito sobre subdivisões).
+    Multicast - Identificador de um grupo/várias máquinas, da onde se origina o seu nome "multi". Ao contrário do IPv4 que possui broadcast, o IPv6 funciona com o Multicast.
+    Anycast - Endereço enviado a várias máquinas aonde qualquer uma perto, logicamente pode responder e dar a devida resposta.</p>
+    <img src="https://todopacketracer.files.wordpress.com/2017/07/ipv6_tiposdirecciones.jpg" alt="foto"></img>
+    <p>Aliás, você sabia que o IPv6 permite tunneling ao enviar/receber dados entre o protocolo IPv4? isso é feito usando o método de unicast, você também pode pesquisar sobre 6to4, na qual permite um node, entre o IPv4 e o IPv6.</p>
+     <p><br/><br/>
+   <br/></p>
+   <h3>DHCP</h3>
+ <p>O Dynamic Host Configuration Protocol ou DHCPv6 (para o IPv6), funciona como o esperado, usando o protocolo UDP, o mesmo configura um endereçamento localmente (ip-local) e o envia para o servidor DHCP na qual ira gerenciar o mesmo. Entretanto o DHCPv6 tem algumas melhorias em relação a isso, como a obtenção recursiva de endereços IPv6, labels e outros parametros...
+
+Mas o que é um servidor DHCP? Um servidor DHCP nada mais é do que um identificador e responsavel por atribuir um endereçamento a aplicação e outros tipos de configurações importantes.
+
+Se lembra da parte acima que falamos sobre Multicast, bem, o servidor nada mais faz do que uma comunicação multicast para que exista uma verificação entre o cliente -> servidor, caso o intervalo de resposta não seja o mesmo, ou a latencia aumente o DHCPv6 irá configurar uma retransmissão como forma de tratamento de erros e possiveis falhas.
+
+~ Fim da parte 1 </p>
+<div class="lop">  
+   <li>mega link 1 hacker</li>
+ <button onclick="window.location.href = 'https://mega.nz/#F!y1l3wawS!gXa80sHhxIZCWhzfAwSi1w'"> click aqui</button>
+<div class="lop"
+<li> teremos parte 2 na próxima atualização do site.</li>
+</div>
+<p><br/><br/>
+   <br/></p>
+   <div class="doa">
+    <h3>Doe qualquer quantia para que eu posso manter esse site e melhora-ló e trazer mais conteúdo.</h3>
+				<p> CNPJ:35.136.120/0001-03</p>
+				<p> Bitcoin: 3BoKn6ChT9jGnht8tGCeAB2wVJMWxE3kFc<br><br></p>					 
+				<p>Copyright © 2023 | Criado por: paython soares | EMAIL: andefeizilouizouz@gmail.com</p>
+				</div>
+		</center>
+</body>
+</html>

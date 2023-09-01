@@ -1,0 +1,54 @@
+.dono{color: red;
+    
+}
+
+h1{color: red;
+    
+}
+h2{color: red;
+    
+}
+.logo {
+    background: left / cover url('images (4).gif');
+    display: flex;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    font: bold calc(2em + 2 * (100vw - 120px) / 100) 'Dancing Script', fantasy;
+    color: #ff0083;
+    text-shadow: #000 2px 2px 0.2rem;
+}
+.color{ color: red;
+    
+}
+h3{ color: red;
+    
+}
+h4{color: red;
+    
+}
+button{width:250px; height:45px; font-size:20px; color:white; background-color:#00ff2d; border-style: solid; border-color: #259b4c;
+  
+}
+p{ color: #31ff15;
+    
+}
+.doa{
+     font-weight:bold;
+     font-size:18px;
+     color: white;
+     background-color: #ff00f1;
+}
+.comeia{
+    background: left / cover url('images (3).gif');
+    display: flex;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    font: bold calc(2em + 2 * (100vw - 120px) / 100) 'Dancing Script', fantasy;
+    color: #ff0083;
+    text-shadow: #000 2px 2px 0.2rem;
+}
+.lop{ color: red;
+    
+}
